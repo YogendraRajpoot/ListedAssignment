@@ -1,5 +1,6 @@
 import React from "react";
-import ChartLine from "./ChartLine";
+import { ChartLine } from "./ChartLine";
+import { ChartPie } from "./ChartPie";
 
 const Dashboard = () => {
   const HEIGHT = window.innerHeight;
@@ -27,6 +28,29 @@ const Dashboard = () => {
       value: "892",
       icon: "https://cdn-icons-png.flaticon.com/512/10613/10613630.png",
       bg: "#DEE0EF",
+    },
+  ];
+
+  const leftSideBard = [
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/122/122072.png",
+      title: "Dashboard",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/617/617418.png",
+      title: "Transaction",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/833/833593.png",
+      title: "Schedules",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png",
+      title: "Users",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/512/2099/2099058.png",
+      title: "Settings",
     },
   ];
 
@@ -68,94 +92,33 @@ const Dashboard = () => {
             width: "100%",
           }}
         >
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              display: "flex",
-              //   border: "2px solid white",
-              width: "100%",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/122/122072.png"
-              alt="icon"
-              style={{ filter: "invert(100%)", width: "20px", height: "20px" }}
-            />
-            <div>Dashboard</div>
-          </div>
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              display: "flex",
-              //   border: "2px solid white",
-              width: "100%",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/617/617418.png"
-              alt="icon"
-              style={{ filter: "invert(100%)", width: "20px", height: "20px" }}
-            />
-            <div>Transaction</div>
-          </div>
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              display: "flex",
-              //   border: "2px solid white",
-              width: "100%",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/833/833593.png"
-              alt="icon"
-              style={{ filter: "invert(100%)", width: "20px", height: "20px" }}
-            />
-            <div>Schedules</div>
-          </div>
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              display: "flex",
-              //   border: "2px solid white",
-              width: "100%",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png"
-              style={{ filter: "invert(100%)", width: "20px", height: "20px" }}
-            />
-            <div>Users</div>
-          </div>
-          <div
-            style={{
-              fontSize: "18px",
-              fontWeight: "700",
-              display: "flex",
-              //   border: "2px solid white",
-              width: "100%",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png"
-              style={{ filter: "invert(100%)", width: "20px", height: "20px" }}
-            />
-            <div>Settings</div>
-          </div>
+          {leftSideBard.map((item, i) => {
+            return (
+              <div
+                key={i}
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  display: "flex",
+                  //   border: "2px solid white",
+                  width: "100%",
+                  gap: "20px",
+                  alignItems: "center",
+                }}
+              >
+                <img
+                  src={item.icon}
+                  alt="icon"
+                  style={{
+                    filter: "invert(100%)",
+                    width: "20px",
+                    height: "20px",
+                  }}
+                />
+                <div>{item.title}</div>
+              </div>
+            );
+          })}
         </div>
         <div
           style={{
@@ -276,7 +239,6 @@ const Dashboard = () => {
               key={i}
               style={{
                 width: "20%",
-                padding: "0%",
                 padding: "2%",
                 borderRadius: "10px",
                 backgroundColor: item.bg,
@@ -313,14 +275,22 @@ const Dashboard = () => {
         </div>
         <div
           style={{
-            width: "100%",
+            width: "80%",
             height: "222px",
             // border: "2px solid red",
             marginTop: "2%",
             borderRadius: "20px",
             backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
-        ></div>
+        >
+          <ChartLine />
+        </div>
         <div
           style={{
             width: "100%",
@@ -337,18 +307,15 @@ const Dashboard = () => {
             style={{
               width: "38%",
               height: "95%",
-              //   border: "2px solid black",
+            //   border: "2px solid black",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-around",
-              alignItems: "flex-start",
-              paddingLeft: "2%",
-              color: "#999999",
               borderRadius: "20px",
               backgroundColor: "white",
+              objectFit: "cover",
             }}
           >
-            <ChartLine />
+            <ChartPie />
           </div>
           <div
             style={{

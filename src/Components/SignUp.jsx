@@ -1,7 +1,13 @@
 import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const HEIGHT = window.innerHeight;
+  useEffect(() => {
+    alert("click on submit");
+  }, []);
   return (
     <div
       style={{
@@ -76,6 +82,7 @@ const SignUp = () => {
               <img
                 style={{ width: "12px" }}
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
+                alt="google"
               />
               <div>Sign In With Google</div>
             </div>
@@ -93,11 +100,15 @@ const SignUp = () => {
               <img
                 style={{ width: "12px" }}
                 src="https://e7.pngegg.com/pngimages/97/358/png-clipart-apple-logo-apple-logo-angle-image-file-formats-thumbnail.png"
+                alt="apple"
               />
               <div>Sign In With Apple</div>
             </div>
           </div>
           <form
+            onSubmit={() => {
+              navigate("/dashboard");
+            }}
             style={{
               backgroundColor: "#FFFFFF",
               display: "flex",
