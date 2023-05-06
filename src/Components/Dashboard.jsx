@@ -98,12 +98,13 @@ const Dashboard = () => {
                 key={i}
                 style={{
                   fontSize: "18px",
-                  fontWeight: "700",
+                  fontWeight: i === 0 ? "700" : "300",
                   display: "flex",
                   //   border: "2px solid white",
                   width: "100%",
                   gap: "20px",
                   alignItems: "center",
+                  cursor: "pointer",
                 }}
               >
                 <img
@@ -129,8 +130,16 @@ const Dashboard = () => {
             rowGap: "40px",
           }}
         >
-          <div style={{ fontSize: "14px", fontWeight: "400" }}>Help</div>
-          <div style={{ fontSize: "14px", fontWeight: "400" }}>Contact Us</div>
+          <div
+            style={{ fontSize: "14px", fontWeight: "400", cursor: "pointer" }}
+          >
+            Help
+          </div>
+          <div
+            style={{ fontSize: "14px", fontWeight: "400", cursor: "pointer" }}
+          >
+            Contact Us
+          </div>
         </div>
       </div>
       <div
@@ -182,9 +191,14 @@ const Dashboard = () => {
                 paddingRight: "4%",
               }}
             >
-              <div>search</div>
+              <input
+                type="text"
+                style={{ border: "0px" }}
+                placeholder="Search"
+              />
+              {/* <div>search</div> */}
               <img
-                style={{ height: "12px", width: "12px" }}
+                style={{ height: "12px", width: "12px", cursor: "pointer" }}
                 src="https://cdn-icons-png.flaticon.com/512/151/151773.png"
                 alt="search"
                 srcset=""
@@ -200,7 +214,7 @@ const Dashboard = () => {
               }}
             >
               <img
-                style={{ width: "100%" }}
+                style={{ width: "100%", cursor: "pointer" }}
                 src="https://cdn-icons-png.flaticon.com/512/3602/3602145.png"
                 alt="notification"
                 srcset=""
@@ -213,6 +227,7 @@ const Dashboard = () => {
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
+                cursor: "pointer",
               }}
             >
               <img
@@ -307,7 +322,7 @@ const Dashboard = () => {
             style={{
               width: "38%",
               height: "95%",
-            //   border: "2px solid black",
+              //   border: "2px solid black",
               display: "flex",
               flexDirection: "column",
               borderRadius: "20px",
